@@ -1,0 +1,21 @@
+// div content container = App
+    // search form = SearchForm
+        // search input field
+        // search button
+            // svg 
+                // path
+                // path
+    // main nav = MainNav
+        // unordered list
+            * cat list link
+            * dog list link
+            * computers list link
+    // div photo container = PhotoContainer
+        // results header 
+        * unordered list
+            * img list item for each returned img = Photo
+            // no results list item = NoResult
+                // no results header
+                // no results paragraph
+
+
