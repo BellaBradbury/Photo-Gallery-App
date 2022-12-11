@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './public/css/index.css';
 import SearchForm from './components/SearchForm';
 import MainNav from './components/MainNav';
 import PhotoContainer from './components/PhotoContainer'
