@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchForm from './components/SearchForm';
 import MainNav from './components/MainNav';
 import PhotoContainer from './components/PhotoContainer'
+import apiKey from './config';
 
 export default class App extends Component {
 
