@@ -1,25 +1,43 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+// import { Route, Routes } from 'react-router-dom';
+// import apiKey from './config';
+
+// APP COMPONENTS
 import SearchForm from './components/SearchForm';
 import MainNav from './components/MainNav';
-import PhotoContainer from './components/PhotoContainer'
-import apiKey from './config';
+import PhotoContainer from './components/PhotoContainer';
 
-export default class App extends Component {
-
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <div className='container'>
-        <SearchForm />
-        <MainNav />
-        <PhotoContainer />
+function App() {
+  return (
+    <div className='container'>
+      <SearchForm />
+      <MainNav />
+      <PhotoContainer />
       </div>
-    );
-  }
+  )
 }
+
+
+
+// export default class App extends Component {
+
+//   constructor() {
+//     super();
+//   }
+
+//   render() {
+//     return (
+//       <div className='container'>
+//         <SearchForm />
+//         <MainNav />
+//         {/* <Routes>
+//           <Route />
+//         </Routes> */}
+//         <PhotoContainer />
+//       </div>
+//     );
+//   }
+// }
 
 
 
@@ -45,4 +63,4 @@ export default class App extends Component {
 //   );
 // }
 
-// export default App;
+export default App;
