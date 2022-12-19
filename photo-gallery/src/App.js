@@ -17,8 +17,9 @@ function App() {
 
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=577ddf6c80e7209700a43b13814136f3&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
-        setPhotos(response.data.data);
+        setPhotos(response.data.photos);
         setLoading(false);
+        console.log(response);
       })
       .catch(error => {
         console.log('Error fetching and parsing request', error); 
