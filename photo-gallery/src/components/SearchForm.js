@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 
 const SearchForm = props => {
-    const [searchText, setSearchText] = useState('');
+    const searchText = useRef(null);
 
     const handleSubmit = e => {
         e.preventDefault();
+        props.changeQuery(searchText.current.value);
         e.currentTarget.reset();
     }
 
     return (
         <form className="search-form" onSubmit={ e => handleSubmit(e) }>
             <input  type="search" 
-                    onChange={ e => setSearchText(e.target.value) }
+                    ref={searchText}
                     name="search" 
                     placeholder="Search" 
                     required />

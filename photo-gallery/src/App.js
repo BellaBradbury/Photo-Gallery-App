@@ -1,26 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import apiKey from './config';
+import axios from 'axios';
+// import apiKey from './config';
 
 // import MainNav 
 import SearchForm from './components/SearchForm';
 import PhotoList from './components/PhotoList';
 
 function App() {
-  const [photos, setPhoto] = useState([]);
+  const [photos, setPhotos] = useState([]);
+  const [query, setQuery] = useState('piano');
+  const [loading, setLoading] = useState(true);
+
   useEffect( () => {
-    fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}=piano&per_page=24&format=json&nojsoncallback=1`)
-      .then( response => response.json() )
-      .then( responseData => setPhoto(responseData.data) )
-      .catch(error => console.log('Error fetching and parsing request', error) );
-  },[]);
+    setLoading(true);
+    let activeFetch = true;
+
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=577ddf6c80e7209700a43b13814136f3&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+      .then( response => {
+        setPhotos(response.data.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing request', error); 
+      });
+    return () => {activeFetch = false}
+  }, [query]);
+
+  const handleQueryChange = searchText => {
+    setQuery(searchText);
+  }
 
   return (
     <div className='container'>
-      <SearchForm />
+      <SearchForm changeQuery={handleQueryChange} />
       {/* MainNav */}
       <div className='photo-container'>
         <h2>Results</h2>
-        <PhotoList />
+        {
+          (loading)
+          ? <p>Loading...</p>
+          :  <PhotoList data={photos} />
+        }
       </div>
     </div>
   );
