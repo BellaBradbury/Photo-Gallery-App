@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import apiKey from './config';
+import apiKey from './config';
 
 // import MainNav 
 import SearchForm from './components/SearchForm';
@@ -15,9 +15,9 @@ function App() {
     setLoading(true);
     let activeFetch = true;
 
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=577ddf6c80e7209700a43b13814136f3&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
-        setPhotos(response.data.photos);
+        setPhotos(response.data.photos.photo);
         setLoading(false);
         console.log(response);
       })
