@@ -19,7 +19,7 @@ function App() {
       .then( response => {
         setPhotos(response.data.photos.photo);
         setLoading(false);
-        console.log(response);
+        console.log(query);
       })
       .catch(error => {
         console.log('Error fetching and parsing request', error); 
