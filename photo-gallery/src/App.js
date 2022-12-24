@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import apiKey from './config';
 
@@ -33,7 +33,8 @@ function App() {
   }
 
   return (
-    <div className='container'>
+    <BrowserRouter>
+       <div className='container'>
       <SearchForm changeQuery={handleQueryChange} />
       {/* MainNav */}
       <div className='photo-container'>
@@ -45,6 +46,7 @@ function App() {
         }
       </div>
     </div>
+    </BrowserRouter>
   );
 }
 
