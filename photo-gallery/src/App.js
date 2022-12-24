@@ -34,16 +34,17 @@ function App() {
 
   return (
     <BrowserRouter>
-       <div className='container'>
-       <Routes>
-        <Route exact path="/" element={<><SearchForm changeQuery={handleQueryChange}/><MainNav/></>}/>
+      <div className='container'>
+      <Routes>
+        <Route exact path="/" element={<><SearchForm changeQuery={handleQueryChange} /><MainNav /></>} />
       </Routes>
       <div className='photo-container'>
         <h2>Results</h2>
         {
           (loading)
           ? <p>Loading...</p>
-          :  <PhotoList data={photos} />
+            // :  <PhotoList data={photos} />
+            : <Routes><Route path=":query" element={<PhotoList data={photos} />} /></Routes>
         }
       </div>
     </div>
