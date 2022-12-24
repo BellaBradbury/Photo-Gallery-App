@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import apiKey from './config';
 
-// import MainNav 
+import MainNav from './components/MainNav';
 import SearchForm from './components/SearchForm';
 import PhotoList from './components/PhotoList';
 
@@ -35,8 +35,9 @@ function App() {
   return (
     <BrowserRouter>
        <div className='container'>
-      <SearchForm changeQuery={handleQueryChange} />
-      {/* MainNav */}
+       <Routes>
+        <Route exact path="/" element={<><SearchForm changeQuery={handleQueryChange}/><MainNav/></>}/>
+      </Routes>
       <div className='photo-container'>
         <h2>Results</h2>
         {
