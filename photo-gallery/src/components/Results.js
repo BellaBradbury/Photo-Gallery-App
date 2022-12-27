@@ -4,7 +4,7 @@ import apiKey from '../config';
 
 import PhotoList from './PhotoList';
 
-function Results() {
+const Results = (props) => {
   const [photos, setPhotos] = useState([]);
   const [query, setQuery] = useState('piano');
   const [loading, setLoading] = useState(true);
