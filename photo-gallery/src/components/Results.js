@@ -13,7 +13,7 @@ const Results = (props) => {
     setLoading(true);
     let activeFetch = true;
 
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${props.query}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
         setPhotos(response.data.photos.photo);
         setLoading(false);
@@ -23,7 +23,7 @@ const Results = (props) => {
         console.log('Error fetching and parsing request', error); 
       });
     return () => {activeFetch = false}
-  }, [query]);
+  }, [props.query]);
 
   const handleQueryChange = searchText => {
     setQuery(searchText);
