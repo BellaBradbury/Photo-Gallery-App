@@ -16,21 +16,21 @@ const Results = (props) => {
     let activeFetch = true;
 
     if (typeof searchText === 'undefined') {
-      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchText}&per_page=24&format=json&nojsoncallback=1`)
-      .then( response => {
-        setPhotos(response.data.photos.photo);
-        setLoading(false);
-        console.log(searchText);
-      })
-      .catch(error => {
-        console.log('Error fetching and parsing request', error); 
-      });
-    } else {
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${props.query}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
         setPhotos(response.data.photos.photo);
         setLoading(false);
         console.log(props.query);
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing request', error); 
+      });
+    } else {
+      axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchText}&per_page=24&format=json&nojsoncallback=1`)
+      .then( response => {
+        setPhotos(response.data.photos.photo);
+        setLoading(false);
+        console.log(searchText);
       })
       .catch(error => {
         console.log('Error fetching and parsing request', error); 
