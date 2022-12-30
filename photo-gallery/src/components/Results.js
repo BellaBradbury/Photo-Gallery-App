@@ -7,7 +7,6 @@ import PhotoList from './PhotoList';
 
 const Results = (props) => {
   const [photos, setPhotos] = useState([]);
-  // const [query, setQuery] = useState('piano');
   const [loading, setLoading] = useState(true);
   let { searchText } = useParams();
 
@@ -38,10 +37,6 @@ const Results = (props) => {
     }
     return () => {activeFetch = false}
   }, [props.query, searchText]);
-
-  // const handleQueryChange = searchText => {
-  //   setQuery(searchText);
-  // }
 
   return (
     <div className='photo-container'>
