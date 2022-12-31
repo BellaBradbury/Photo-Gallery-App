@@ -17,7 +17,9 @@ const Results = (props) => {
     if (typeof searchText === 'undefined') {
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${props.query}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
-        setPhotos(response.data.photos.photo);
+        if (activeFetch) {
+          setPhotos(response.data.photos.photo);
+        }
         setLoading(false);
         console.log(props.query);
       })
@@ -27,7 +29,9 @@ const Results = (props) => {
     } else {
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchText}&per_page=24&format=json&nojsoncallback=1`)
       .then( response => {
-        setPhotos(response.data.photos.photo);
+        if (activeFetch) {
+          setPhotos(response.data.photos.photo);
+        }
         setLoading(false);
         console.log(searchText);
       })
