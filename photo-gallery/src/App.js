@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Header from './components/Header';
 import Results from './components/Results';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/guitar" element={<Results query="guitar" />} />
             <Route path="/drums" element={<Results query="drums" />} />
             <Route path="/:searchText" element={<Results />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
