@@ -1,5 +1,8 @@
+// dependencies
 import React from "react";
 
+// displays only when a route is invalid
+    // ex. /dog/67/cat
 const NotFound = () => {
     return (
         <div className="photo-container">

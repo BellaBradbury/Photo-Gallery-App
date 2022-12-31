@@ -1,16 +1,20 @@
+// dependencies
 import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SearchForm = props => {
+    // variables
     const searchText = useRef(null);
     const navigate = useNavigate();
 
+    // navigates users to query route and resets search field
     const handleSubmit = e => {
         e.preventDefault();
         navigate(`/${searchText.current.value}`);
         e.currentTarget.reset();
     }
 
+    // captures searchText from user input into search bar and handles request
     return (
         <form className="search-form" onSubmit={ e => handleSubmit(e) }>
             <input  type="search" 

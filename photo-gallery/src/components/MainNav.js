@@ -1,6 +1,8 @@
+// dependencies
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// main site navigation, only nav buttons
 const MainNav = props => {
     return(
         <nav className="main-nav">
