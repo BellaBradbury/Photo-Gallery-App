@@ -1,7 +1,7 @@
 # Create A React Photo Gallery
     Team Treehouse - Web Development TechDegree - Project 11
 
-Submitted m/d/yyy ***STATUS***
+Submitted 12/31/22 ***EXCEEDS EXPECTATIONS***
 
 -SKILLS USED-
 * REACT
